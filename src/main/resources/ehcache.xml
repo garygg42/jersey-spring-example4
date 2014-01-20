@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This is the configuration of the Ehcache.
+
+There is a lot of stuff that can be configured, much more than in this simple 
+example, so please take a look at http://ehcache.org/ehcache.xml for an example
+that contains full commentary required to configure each element.
+-->
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd" 
+         updateCheck="false" 
+         monitoring="autodetect" 
+         dynamicConfig="true">
+ 
+    <!--
+    A cache named fruit.
+    This cache contains a maximum in memory of 5 elements, and will expire
+    an element if it is idle for more than 1 minute and lives for more than
+    2 minutes.
+    -->
+    
+    <cache name="fruit" 
+           maxEntriesLocalHeap="5" 
+           eternal="false" 
+           overflowToDisk="false"
+           timeToIdleSeconds="60" 
+           timeToLiveSeconds="120" 
+           memoryStoreEvictionPolicy="LFU"/>
+    
+</ehcache>
